@@ -36,4 +36,4 @@ jobs:
     - name: Build the docker image and tag it
       run: docker build . -t device-service
     - name: Push the docker image to dockerhub
-      run: docker push device-service
+      run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/device-service:device-service
