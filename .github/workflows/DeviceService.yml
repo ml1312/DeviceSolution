@@ -19,7 +19,7 @@ jobs:
         dotnet-version: 3.1.101
     - name: Install dependencies
       run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
+    - name: Build the .net core solution
+      run: dotnet publish --configuration Release -o pub
+    - name: Build the docker image and tag it
+      run: docker build . -t device-service
