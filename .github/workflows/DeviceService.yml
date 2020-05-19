@@ -32,8 +32,8 @@ jobs:
     steps:    
     - uses: actions/checkout@v2
     - name: Dockerhub login
-      run: docker login docker.io -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
+      run: docker login docker.io/library -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_PASSWORD }}
     - name: Build the docker image and tag it
       run: docker build . -t device-service
     - name: Push the docker image to dockerhub
-      run: docker push docker.io/library/device-service
+      run: docker push device-service
